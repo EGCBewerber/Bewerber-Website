@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EGC Callcenter</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b1220;
+    color: white;
+}
+
+header {
+    background: #0f1b33;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #4da3ff;
+}
+
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 42px;
+}
+
+.blue {
+    color: #4da3ff;
+}
+
+.section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #121f3a;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+}
+
+button {
+    background: #4da3ff;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background: #2f86ff;
+}
+
+/* WhatsApp Button */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">EGC CALLCENTER</div>
+    <nav>
+        <a href="#services">Leistungen</a>
+        <a href="#bewerbung">Bewerbung</a>
+        <a href="#kontakt">Kontakt</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <h1>Wir verbinden <span class="blue">Menschen</span> mit <span class="blue">Lösungen</span></h1>
+    <p>Professionelles Callcenter & Kundenservice für Unternehmen</p>
+</div>
+
+<div class="section" id="services">
+    <h2>Unsere Leistungen</h2>
+    <div class="cards">
+        <div class="card">📞 Inbound & Outbound Calls</div>
+        <div class="card">💼 Vertrieb & Kundenberatung</div>
+        <div class="card">🧾 Backoffice Support</div>
+        <div class="card">🤝 Projektabwicklung</div>
+    </div>
+</div>
+
+<div class="section" id="bewerbung">
+
+    <h2>Mitarbeiter Bewerbung</h2>
+    <form onsubmit="sendMailEmployee(); return false;">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="email" id="email" placeholder="E-Mail" required>
+        <input type="text" id="phone" placeholder="Telefon" required>
+        <textarea id="msg" placeholder="Warum möchtest du bei uns arbeiten?" required></textarea>
+        <button>Jetzt bewerben</button>
+    </form>
+
+    <br><br>
+
+    <h2>Projektanfrage (Unternehmen)</h2>
+    <form onsubmit="sendMailCompany(); return false;">
+        <input type="text" id="cname" placeholder="Unternehmen" required>
+        <input type="email" id="cemail" placeholder="E-Mail" required>
+        <textarea id="cmsg" placeholder="Projektbeschreibung" required></textarea>
+        <button>Projekt senden</button>
+    </form>
+
+</div>
+
+<div class="section" id="kontakt">
+    <h2>Kontakt</h2>
+    <p>Email: info@egc-callcenter.de</p>
+    <p>Telefon: +49 000 000000</p>
+</div>
+
+<!-- WhatsApp Button -->
+<a class="whatsapp" id="wa" target="_blank">🟢</a>
+
+<script>
+// 👉 HIER DEINE WHATSAPP NUMMER EINTRAGEN:
+let whatsappNumber = "49123456789";
+
+document.getElementById("wa").href =
+"https://wa.me/" + whatsappNumber;
+
+// Bewerbung Mitarbeiter
+function sendMailEmployee(){
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let phone = document.getElementById("phone").value;
+    let msg = document.getElementById("msg").value;
+
+    window.location.href =
+    `mailto:info@egc-callcenter.de?subject=Bewerbung von ${name}&body=Email: ${email}%0ATelefon: ${phone}%0A%0A${msg}`;
+}
+
+// Projekt Unternehmen
+function sendMailCompany(){
+    let cname = document.getElementById("cname").value;
+    let cemail = document.getElementById("cemail").value;
+    let cmsg = document.getElementById("cmsg").value;
+
+    window.location.href =
+    `mailto:info@egc-callcenter.de?subject=Projektanfrage von ${cname}&body=Email: ${cemail}%0A%0A${cmsg}`;
+}
+</script>
+
+</body>
+</html>
