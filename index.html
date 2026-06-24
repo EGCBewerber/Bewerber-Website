@@ -1,198 +1,308 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EGC Callcenter</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>EGC Call Center Services</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0b1220;
-    color: white;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-header {
-    background: #0f1b33;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+body {
+  background: #f5f7fb;
+  color: #0b1b3a;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 60px;
+  background: #07142a;
+  color: white;
 }
 
 .logo {
-    font-size: 22px;
-    font-weight: bold;
-    color: #4da3ff;
+  font-size: 22px;
+  font-weight: bold;
 }
 
-nav a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
+.nav-links {
+  display: flex;
+  gap: 25px;
 }
 
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background: #1b66ff;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/* HERO */
 .hero {
-    text-align: center;
-    padding: 80px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px;
+  background: linear-gradient(120deg, #07142a, #0b2a5a);
+  color: white;
 }
 
-.hero h1 {
-    font-size: 42px;
+.hero-text {
+  max-width: 50%;
 }
 
-.blue {
-    color: #4da3ff;
+.hero-text h1 {
+  font-size: 48px;
+  line-height: 1.1;
 }
 
-.section {
-    padding: 60px 20px;
-    max-width: 1000px;
-    margin: auto;
+.hero-text span {
+  color: #3aa0ff;
 }
 
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+.hero-text p {
+  margin-top: 20px;
+  opacity: 0.9;
+}
+
+.hero-buttons {
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 12px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.btn-blue {
+  background: #1b66ff;
+  color: white;
+}
+
+.btn-outline {
+  border: 1px solid white;
+  color: white;
+}
+
+.hero-img {
+  width: 45%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.hero-img img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* FEATURES */
+.features {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  padding: 40px 60px;
 }
 
 .card {
-    background: #121f3a;
-    padding: 20px;
-    border-radius: 12px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
 
-input, textarea, select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 8px;
+/* SERVICES */
+.section-title {
+  text-align: center;
+  margin: 40px 0 20px;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  padding: 0 60px 60px;
+}
+
+.service {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* FORMS */
+.forms {
+  display: flex;
+  gap: 20px;
+  padding: 0 60px 60px;
+}
+
+.form-box {
+  flex: 1;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+}
+
+input, select, textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
 }
 
 button {
-    background: #4da3ff;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 100%;
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  background: #1b66ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
 }
 
-button:hover {
-    background: #2f86ff;
+/* FOOTER */
+.footer {
+  background: #07142a;
+  color: white;
+  padding: 40px 60px;
+  display: flex;
+  justify-content: space-between;
 }
 
-/* WhatsApp Button */
+/* WHATSAPP BUTTON */
 .whatsapp {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    color: white;
-    text-decoration: none;
-    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 14px 16px;
+  border-radius: 50px;
+  text-decoration: none;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">EGC CALLCENTER</div>
-    <nav>
-        <a href="#services">Leistungen</a>
-        <a href="#bewerbung">Bewerbung</a>
-        <a href="#kontakt">Kontakt</a>
-    </nav>
-</header>
+<!-- NAV -->
+<div class="navbar">
+  <div class="logo">EGC</div>
+  <div class="nav-links">
+    <a href="#">Startseite</a>
+    <a href="#">Über uns</a>
+    <a href="#">Leistungen</a>
+    <a href="#">Karriere</a>
+    <a href="#">Kontakt</a>
+  </div>
+  <a class="btn-primary" href="#">Projekt anfragen</a>
+</div>
 
+<!-- HERO -->
 <div class="hero">
-    <h1>Wir verbinden <span class="blue">Menschen</span> mit <span class="blue">Lösungen</span></h1>
-    <p>Professionelles Callcenter & Kundenservice für Unternehmen</p>
-</div>
+  <div class="hero-text">
+    <h1>WIR VERBINDEN <span>MENSCHEN.</span><br>WIR SCHAFFEN <span>LÖSUNGEN.</span></h1>
+    <p>EGC ist Ihr professioneller Partner im Kundenservice, Vertrieb und Call Center Lösungen.</p>
 
-<div class="section" id="services">
-    <h2>Unsere Leistungen</h2>
-    <div class="cards">
-        <div class="card">📞 Inbound & Outbound Calls</div>
-        <div class="card">💼 Vertrieb & Kundenberatung</div>
-        <div class="card">🧾 Backoffice Support</div>
-        <div class="card">🤝 Projektabwicklung</div>
+    <div class="hero-buttons">
+      <a class="btn btn-blue" href="#">Unsere Leistungen</a>
+      <a class="btn btn-outline" href="#">Über uns</a>
     </div>
+  </div>
+
+  <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" />
+  </div>
 </div>
 
-<div class="section" id="bewerbung">
+<!-- FEATURES -->
+<div class="features">
+  <div class="card">100% Kundenorientiert</div>
+  <div class="card">Geschulte Mitarbeiter</div>
+  <div class="card">Moderne Technologie</div>
+  <div class="card">DSGVO Konform</div>
+  <div class="card">Ergebnisorientiert</div>
+</div>
 
-    <h2>Mitarbeiter Bewerbung</h2>
-    <form onsubmit="sendMailEmployee(); return false;">
-        <input type="text" id="name" placeholder="Name" required>
-        <input type="email" id="email" placeholder="E-Mail" required>
-        <input type="text" id="phone" placeholder="Telefon" required>
-        <textarea id="msg" placeholder="Warum möchtest du bei uns arbeiten?" required></textarea>
-        <button>Jetzt bewerben</button>
-    </form>
+<!-- SERVICES -->
+<h2 class="section-title">Professioneller Service für Ihren Erfolg</h2>
 
-    <br><br>
+<div class="services">
+  <div class="service">Kundenservice</div>
+  <div class="service">Inbound & Outbound</div>
+  <div class="service">Vertrieb & Telesales</div>
+  <div class="service">Backoffice</div>
+  <div class="service">Individuelle Lösungen</div>
+</div>
 
-    <h2>Projektanfrage (Unternehmen)</h2>
-    <form onsubmit="sendMailCompany(); return false;">
-        <input type="text" id="cname" placeholder="Unternehmen" required>
-        <input type="email" id="cemail" placeholder="E-Mail" required>
-        <textarea id="cmsg" placeholder="Projektbeschreibung" required></textarea>
-        <button>Projekt senden</button>
-    </form>
+<!-- FORMS -->
+<div class="forms">
+
+  <div class="form-box">
+    <h3>Bewerbung</h3>
+    <input placeholder="Name" />
+    <input placeholder="E-Mail" />
+    <input placeholder="Telefon" />
+    <select>
+      <option>Position auswählen</option>
+    </select>
+    <button>Jetzt bewerben</button>
+  </div>
+
+  <div class="form-box">
+    <h3>Projekt anfragen</h3>
+    <input placeholder="Unternehmen" />
+    <input placeholder="E-Mail" />
+    <input placeholder="Telefon" />
+    <textarea placeholder="Beschreibung"></textarea>
+    <button>Anfrage senden</button>
+  </div>
 
 </div>
 
-<div class="section" id="kontakt">
-    <h2>Kontakt</h2>
-    <p>Email: info@egc-callcenter.de</p>
-    <p>Telefon: +49 000 000000</p>
+<!-- FOOTER -->
+<div class="footer">
+  <div>
+    <h3>EGC</h3>
+    <p>Call Center Services</p>
+  </div>
+
+  <div>
+    <h4>Navigation</h4>
+    <p>Startseite</p>
+    <p>Leistungen</p>
+    <p>Kontakt</p>
+  </div>
+
+  <div>
+    <h4>Kontakt</h4>
+    <p>info@egc.de</p>
+    <p>+49 ...</p>
+  </div>
 </div>
 
-<!-- WhatsApp Button -->
-<a class="whatsapp" id="wa" target="_blank">🟢</a>
-
-<script>
-// 👉 HIER DEINE WHATSAPP NUMMER EINTRAGEN:
-let whatsappNumber = "49123456789";
-
-document.getElementById("wa").href =
-"https://wa.me/" + whatsappNumber;
-
-// Bewerbung Mitarbeiter
-function sendMailEmployee(){
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let phone = document.getElementById("phone").value;
-    let msg = document.getElementById("msg").value;
-
-    window.location.href =
-    `mailto:info@egc-callcenter.de?subject=Bewerbung von ${name}&body=Email: ${email}%0ATelefon: ${phone}%0A%0A${msg}`;
-}
-
-// Projekt Unternehmen
-function sendMailCompany(){
-    let cname = document.getElementById("cname").value;
-    let cemail = document.getElementById("cemail").value;
-    let cmsg = document.getElementById("cmsg").value;
-
-    window.location.href =
-    `mailto:info@egc-callcenter.de?subject=Projektanfrage von ${cname}&body=Email: ${cemail}%0A%0A${cmsg}`;
-}
-</script>
+<!-- WhatsApp -->
+<a class="whatsapp" href="#">WhatsApp</a>
 
 </body>
 </html>
